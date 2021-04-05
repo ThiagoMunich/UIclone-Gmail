@@ -1,42 +1,54 @@
-import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import '@fontsource/roboto'
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import '@fontsource/roboto';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
-import MailList from './pages/MailList'
-import Meetings from './pages/Meetings'
-import InferiorMenu from './components/InferiorMenu'
+import MailList from './pages/MailList';
+import Meetings from './pages/Meetings';
+import InferiorMenu from './components/InferiorMenu';
+import InvalidScreenSize from './pages/InvalidScreenSize';
 
 export default function Routes() {
-  const theme = createMuiTheme({
-    typography: {
-      fontSize: 14,
-      fontFamily: 'Roboto',
-    },
-    overrides: {
-      MuiCssBaseline: {
-        '@global': {
-          '@font-face': {
-            fontWeight: 500,
-            fontFamily: 'Roboto',
-            fontStyle: 'normal',
-            fontDisplay: 'swap',
-          },
-        },
-      },
-    },
-  })
+	var mobile = useMediaQuery('(min-width:1000px)');
 
-  return (
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <Switch>
-          <Route component={MailList} exact path="/" />
-          <Route component={Meetings} path="/meetings" />
-        </Switch>
-        <InferiorMenu />
-      </BrowserRouter>
-    </ThemeProvider>
-  )
+	const theme = createMuiTheme({
+		typography: {
+			fontSize: 14,
+			fontFamily: 'Roboto',
+		},
+		overrides: {
+			MuiCssBaseline: {
+				'@global': {
+					'@font-face': {
+						fontWeight: 500,
+						fontFamily: 'Roboto',
+						fontStyle: 'normal',
+						fontDisplay: 'swap',
+					},
+				},
+			},
+		},
+	});
+
+	return (
+		<ThemeProvider theme={theme}>
+			<BrowserRouter>
+				{!mobile ? (
+					<>
+						<Switch>
+							<Route component={MailList} exact path='/' />
+							<Route component={Meetings} path='/meetings' />
+						</Switch>
+						<InferiorMenu />
+					</>
+				) : (
+					<Switch>
+						<Route component={InvalidScreenSize} path='/' />
+					</Switch>
+				)}
+			</BrowserRouter>
+		</ThemeProvider>
+	);
 }
