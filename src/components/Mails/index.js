@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-import { Avatar, Grid, Typography } from '@material-ui/core'
+import { Avatar, Fab, Grid, Typography } from '@material-ui/core'
 
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -10,6 +10,7 @@ import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined'
 
 import { mailData } from './mailData'
 import Principal from './components'
+import { EditOutlined } from '@material-ui/icons'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,10 +48,36 @@ const useStyles = makeStyles((theme) => ({
     padding: 3,
     opacity: '50%',
   },
+  fab: {
+    color: '#de5246',
+    backgroundColor: '#FFF',
+    margin: 20,
+    position: 'fixed',
+    bottom: 60,
+    fontWeight: 700,
+    justifyContent: 'flex-end',
+    fontSize: 16,
+    textTransform: 'none',
+  },
+  fabIcon: {
+    color: '#de5246',
+    marginRight: 8,
+  },
 }))
 
 export default function Mails() {
   const classes = useStyles()
+  const [writeButtonVariant, setWriteButtonVariant] = useState('extended')
+
+  useEffect(() => {
+    window.onscroll = function () {
+      if (window.pageYOffset === 0) {
+        setWriteButtonVariant('extended')
+      } else {
+        setWriteButtonVariant('round')
+      }
+    }
+  })
 
   return (
     <>
@@ -58,7 +85,6 @@ export default function Mails() {
         Principal
       </Typography>
       <Principal />
-
       {mailData.map((mail) => (
         <Grid container key={mail.id} className={classes.root}>
           <Avatar style={{ backgroundColor: mail.avatarColor }}>{mail.avatarLetter}</Avatar>
@@ -89,6 +115,12 @@ export default function Mails() {
           </Grid>
         </Grid>
       ))}
+      <Grid container justify="flex-end">
+        <Fab variant={writeButtonVariant} size="medium" className={classes.fab}>
+          <EditOutlined className={classes.fabIcon} />
+          {writeButtonVariant === 'extended' ? 'Write' : ' '}
+        </Fab>
+      </Grid>
     </>
   )
 }

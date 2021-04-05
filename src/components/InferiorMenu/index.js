@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import Badge from '@material-ui/core/Badge'
@@ -28,7 +28,11 @@ const useStyles = makeStyles({
 export default function InferiorMenu() {
   const classes = useStyles()
   let history = useHistory()
-  const [value, setValue] = useState()
+  const [value, setValue] = useState(0)
+
+  useEffect(() => {
+    value === 0 && history.push('/')
+  }, [history, value])
 
   return (
     <BottomNavigation

@@ -1,10 +1,12 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+
 import Paper from '@material-ui/core/Paper'
-import InputBase from '@material-ui/core/InputBase'
-import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu'
 import Avatar from '@material-ui/core/Avatar'
+import MenuIcon from '@material-ui/icons/Menu'
+import IconButton from '@material-ui/core/IconButton'
+import Typography from '@material-ui/core/Typography'
+
+import { makeStyles } from '@material-ui/core/styles'
 
 import profilePicture from '../../assets/images/profilePicture.jpg'
 
@@ -15,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: 50,
     marginBottom: 10,
+    justifyContent: 'space-between',
   },
   input: {
     marginLeft: theme.spacing(1),
@@ -23,18 +26,21 @@ const useStyles = makeStyles((theme) => ({
   iconButton: {
     padding: 10,
   },
+  meetingText: {
+    fontWeight: 700,
+    fontSize: 20,
+  },
 }))
 
-export default function Header() {
+export default function MeetingHeader() {
   const classes = useStyles()
 
   return (
-    <Paper component="form" className={classes.root}>
+    <Paper className={classes.root} elevation={0}>
       <IconButton className={classes.iconButton} aria-label="menu">
         <MenuIcon />
       </IconButton>
-      <InputBase className={classes.input} placeholder="Search e-mail" />
-
+      <Typography className={classes.meetingText}>Meeting</Typography>
       <IconButton className={classes.iconButton}>
         <Avatar alt="kabal" src={profilePicture} />
       </IconButton>
