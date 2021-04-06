@@ -15,7 +15,7 @@ function DialogNotImplemented({ open, close }) {
 			</DialogContent>
 			<DialogActions style={{ justifyContent: 'center' }}>
 				<Button size='small' style={{ textTransform: 'none' }} onClick={close}>
-					Close me
+					Close
 				</Button>
 			</DialogActions>
 		</Dialog>
