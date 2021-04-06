@@ -9,8 +9,8 @@ function DialogNotImplemented({ open, close }) {
 				<Typography variant='body2' component='p'>
 					Sorry, but not all features are implemented.
 				</Typography>
-				<Typography variant='caption' component='p'>
-					Remember: this is just an UI demo!
+				<Typography variant='caption' component='p' style={{ marginTop: 10 }}>
+					<strong>Remember:</strong> this is just an UI demo!
 				</Typography>
 			</DialogContent>
 			<DialogActions style={{ justifyContent: 'center' }}>
