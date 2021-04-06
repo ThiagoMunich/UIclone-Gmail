@@ -11,11 +11,11 @@ import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import { mailData } from './mailData';
 import Principal from './components';
 import { EditOutlined } from '@material-ui/icons';
+import DialogNotImplemented from '../DialogNotImplemented';
 
 const useStyles = makeStyles(theme => ({
 	root: {
 		width: '100%',
-		// height: 50,
 		marginTop: 20,
 	},
 	mailTitle: {
@@ -67,6 +67,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Mails() {
 	const classes = useStyles();
+	const [openDialog, setOpenDialog] = useState(false);
 	const [writeButtonVariant, setWriteButtonVariant] = useState('extended');
 
 	useEffect(() => {
@@ -115,12 +116,13 @@ export default function Mails() {
 					</Grid>
 				</Grid>
 			))}
-			<Grid container justify='flex-end'>
+			<Grid container justify='flex-end' onClick={() => setOpenDialog(true)}>
 				<Fab variant={writeButtonVariant} size='medium' className={classes.fab}>
 					<EditOutlined className={classes.fabIcon} />
 					{writeButtonVariant === 'extended' ? 'Write' : ' '}
 				</Fab>
 			</Grid>
+			<DialogNotImplemented open={openDialog} close={() => setOpenDialog(false)} />
 		</>
 	);
 }
