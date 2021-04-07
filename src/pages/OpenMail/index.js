@@ -60,7 +60,7 @@ function OpenMail({ open, close, mail }) {
 					</Typography>
 				</Grid>
 
-				<Grid container style={{ padding: 8 }} alignItems='center' justify='space-between'>
+				<Grid container style={{ padding: 8 }} justify='space-between'>
 					<Avatar style={{ backgroundColor: mail.avatarColor }}>{mail.avatarLetter}</Avatar>
 					<Typography variant='body2' className={classes.title}>
 						This text just random
