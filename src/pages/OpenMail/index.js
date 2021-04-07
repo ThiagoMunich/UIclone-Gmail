@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Dialog, DialogContent, Grid, Slide, Avatar, Typography } from '@material-ui/core';
+import { Collapse, Dialog, DialogContent, Grid, Slide, Avatar, Typography } from '@material-ui/core';
 
 import { makeStyles } from '@material-ui/core/styles';
 
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import UndoOutlinedIcon from '@material-ui/icons/UndoOutlined';
 import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
 import MailOutlineOutlinedIcon from '@material-ui/icons/MailOutlineOutlined';
 import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
 import SystemUpdateAltOutlinedIcon from '@material-ui/icons/SystemUpdateAltOutlined';
+import { Alert } from '@material-ui/lab';
 
 const useStyles = makeStyles({
 	backIcon: {
@@ -25,6 +28,8 @@ const useStyles = makeStyles({
 
 function OpenMail({ open, close, mail }) {
 	const classes = useStyles();
+
+	const [openForMe, setOpenForMe] = useState(false);
 
 	return (
 		<>
@@ -60,11 +65,26 @@ function OpenMail({ open, close, mail }) {
 					<Typography variant='body2' className={classes.title}>
 						This text just random
 					</Typography>
+
 					<Grid item container md={5} sm={5} xs={5} justify='flex-end'>
 						<UndoOutlinedIcon className={classes.otherIcons} style={{ marginRight: 15 }} />
 						<MoreVertOutlinedIcon className={classes.otherIcons} />
 					</Grid>
+					<Grid item container md={6} sm={6} xs={6} justify='center' style={{ marginBottom: 10 }}>
+						<Typography variant='caption' component='p'>
+							for me
+						</Typography>
+						{openForMe ? (
+							<ExpandLess onClick={() => setOpenForMe(false)} fontSize='small' />
+						) : (
+							<ExpandMore onClick={() => setOpenForMe(true)} fontSize='small' />
+						)}
+					</Grid>
 				</Grid>
+
+				<Collapse in={openForMe} timeout='auto' unmountOnExit>
+					<Alert>Teste</Alert>
+				</Collapse>
 
 				<DialogContent>{mail.content}</DialogContent>
 			</Dialog>
