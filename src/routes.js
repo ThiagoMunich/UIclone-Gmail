@@ -12,7 +12,7 @@ import InferiorMenu from './components/InferiorMenu';
 import InvalidScreenSize from './pages/InvalidScreenSize';
 
 export default function Routes() {
-	var mobile = useMediaQuery('(min-width:1000px)');
+	var mobile = useMediaQuery('(min-width:600px)');
 
 	const theme = createMuiTheme({
 		typography: {

@@ -14,7 +14,7 @@ function InvalidScreenSize() {
 			<Typography variant='body1'>
 				Please orient your device to portrait or find a smaller screen. You won't be disappointed.
 			</Typography>
-			<Typography variant='caption'>Max width allowed: 1000px</Typography>
+			<Typography variant='caption'>Max width allowed: 600px</Typography>
 		</Grid>
 	);
 }
