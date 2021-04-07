@@ -12,6 +12,7 @@ import { mailData } from './mailData';
 import Principal from './components';
 import { EditOutlined } from '@material-ui/icons';
 import DialogNotImplemented from '../DialogNotImplemented';
+import OpenMail from '../../pages/OpenMail';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -68,6 +69,8 @@ const useStyles = makeStyles(theme => ({
 export default function Mails() {
 	const classes = useStyles();
 	const [openDialog, setOpenDialog] = useState(false);
+	const [openMail, setOpenMail] = useState(false);
+	const [selectedMail, setSelectedMail] = useState({});
 	const [writeButtonVariant, setWriteButtonVariant] = useState('extended');
 
 	useEffect(() => {
@@ -80,6 +83,11 @@ export default function Mails() {
 		};
 	});
 
+	const handleOpenMail = mail => {
+		setSelectedMail(mail);
+		setOpenMail(true);
+	};
+
 	return (
 		<>
 			<Typography variant='overline' className={classes.principalText}>
@@ -87,7 +95,7 @@ export default function Mails() {
 			</Typography>
 			<Principal />
 			{mailData.map(mail => (
-				<Grid container key={mail.id} className={classes.root}>
+				<Grid container key={mail.id} className={classes.root} onClick={() => handleOpenMail(mail)}>
 					<Avatar style={{ backgroundColor: mail.avatarColor }}>{mail.avatarLetter}</Avatar>
 					<Grid item container justify='space-between' sm={10} xs={10}>
 						<Grid item>
@@ -123,6 +131,7 @@ export default function Mails() {
 				</Fab>
 			</Grid>
 			<DialogNotImplemented open={openDialog} close={() => setOpenDialog(false)} />
+			<OpenMail open={openMail} close={() => setOpenMail(false)} mail={selectedMail} />
 		</>
 	);
 }
