@@ -177,6 +177,6 @@ export const mailData = [
     title: 'Lorem Ipsum',
     content: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
     subContent: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    time: '08:46',
+    time: '16 pm',
   },
 ]
