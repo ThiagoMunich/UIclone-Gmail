@@ -1,19 +1,17 @@
 import React from 'react'
 
-import { Dialog, DialogContent, Grid, Slide, Avatar, Typography } from '@material-ui/core'
-
-import Alert from '@material-ui/lab/Alert'
+import { Dialog, Grid, Slide, Avatar, Typography } from '@material-ui/core'
 
 import { makeStyles } from '@material-ui/core/styles'
 
 import { IoLogoPwa } from 'react-icons/io5'
-import { SiMicrosoftsqlserver } from 'react-icons/si'
-import { DiDigitalOcean } from 'react-icons/di'
+import { AiFillLinkedin } from 'react-icons/ai'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import UndoOutlinedIcon from '@material-ui/icons/UndoOutlined'
-import { FaReact, FaLaravel, FaDigitalOcean } from 'react-icons/fa'
 import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined'
 import MailOutlineOutlinedIcon from '@material-ui/icons/MailOutlineOutlined'
+import { FaReact, FaLaravel, FaDigitalOcean, FaGithub } from 'react-icons/fa'
+import { SiMicrosoftsqlserver, SiGithubactions, SiGmail } from 'react-icons/si'
 import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined'
 import SystemUpdateAltOutlinedIcon from '@material-ui/icons/SystemUpdateAltOutlined'
 
@@ -82,7 +80,7 @@ function OpenMail({ open, close, mail }) {
         </Grid>
 
         <Grid container justify="center">
-          <img src={profilePicture} alt="kabal" style={{ borderRadius: 360, width: '50%' }} />
+          <img src={profilePicture} alt="kabal" style={{ borderRadius: 360, width: '40%' }} />
         </Grid>
 
         <Grid container style={{ padding: 10, marginTop: 15 }} justify="space-between">
@@ -98,11 +96,7 @@ function OpenMail({ open, close, mail }) {
           </Grid>
         </Grid>
 
-        <Typography variant="overline" style={{ fontWeight: 700, textAlign: 'center' }}>
-          Technologies
-        </Typography>
-
-        <Grid container direction="row" alignItems="center" justify="space-between" style={{ padding: 10 }} spacing={2}>
+        <Grid container direction="row" alignItems="center" justify="space-between" style={{ padding: 10 }}>
           <Grid container item alignItems="center" justify="space-between" md={5} sm={5} xs={5}>
             <FaReact size={20} style={{ color: '#61DBFB' }} />
             <Typography variant="caption">React JS</Typography>
@@ -113,25 +107,49 @@ function OpenMail({ open, close, mail }) {
             <Typography variant="caption">React Native</Typography>
           </Grid>
 
-          <Grid container item alignItems="center" justify="space-between" md={5} sm={5} xs={5}>
-            <IoLogoPwa size={20} style={{ color: '#1d395d' }} />
+          <Grid container item alignItems="center" justify="space-between" md={5} sm={5} xs={5} style={{ marginTop: 20 }}>
+            <IoLogoPwa size={20} style={{ color: '#1D395D' }} />
             <Typography variant="caption">React PWA</Typography>
           </Grid>
 
-          <Grid container item alignItems="center" justify="space-between" md={5} sm={5} xs={5}>
+          <Grid container item alignItems="center" justify="space-between" md={5} sm={5} xs={5} style={{ marginTop: 20 }}>
             <FaLaravel size={20} style={{ color: '#F05340' }} />
             <Typography variant="caption">Laravel</Typography>
           </Grid>
 
-          <Grid container item alignItems="center" justify="space-between" md={5} sm={5} xs={5}>
+          <Grid container item alignItems="center" justify="space-between" md={5} sm={5} xs={5} style={{ marginTop: 20 }}>
+            <FaGithub size={20} style={{ color: '#333' }} />
+            <Typography variant="caption">GitHub</Typography>
+          </Grid>
+
+          <Grid container item alignItems="center" justify="space-between" md={5} sm={5} xs={5} style={{ marginTop: 20 }}>
+            <SiGithubactions size={20} style={{ color: '#333' }} />
+            <Typography variant="caption">GitHub Actions</Typography>
+          </Grid>
+
+          <Grid container item alignItems="center" justify="space-between" md={5} sm={5} xs={5} style={{ marginTop: 20 }}>
             <SiMicrosoftsqlserver size={20} style={{ color: '#F25022' }} />
             <Typography variant="caption">SQL Server</Typography>
           </Grid>
 
-          <Grid container item alignItems="center" justify="space-between" md={5} sm={5} xs={5}>
-            <FaDigitalOcean size={20} style={{ color: '#008bcf' }} />
+          <Grid container item alignItems="center" justify="space-between" md={5} sm={5} xs={5} style={{ marginTop: 20 }}>
+            <FaDigitalOcean size={20} style={{ color: '#008BCF' }} />
             <Typography variant="caption">Cloud Computing</Typography>
           </Grid>
+        </Grid>
+
+        <Grid container style={{ padding: 10 }}>
+          <Grid item md={12} sm={12} xs={12}>
+            <Typography variant="overline" component="p">
+              Contact me
+            </Typography>
+          </Grid>
+          <a href="https://linkedin.com/in/thiagomunich" target="_blank" rel="noreferrer">
+            <AiFillLinkedin size={30} style={{ color: '#008BCF' }} />
+          </a>
+          <a href="mailto:thiagomunich@gmail.com" target="_blank" rel="noreferrer">
+            <SiGmail size={30} style={{ color: '#BB001B', marginLeft: 10 }} />
+          </a>
         </Grid>
       </Dialog>
     </>

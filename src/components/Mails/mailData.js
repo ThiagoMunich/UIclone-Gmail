@@ -4,8 +4,8 @@ export const mailData = [
     avatarLetter: 'W',
     avatarColor: '#' + (0x1000000 + Math.random() * 0xffffff).toString(16).substr(1, 6),
     title: 'Welcome to my project!',
-    content: 'Do you like it?',
-    subContent: 'its UI clone, but without all funcionalities',
+    content: 'Hope you like it',
+    subContent: 'its a UI clone, but without all funcionalities',
     time: '7 am',
   },
   {
@@ -23,7 +23,7 @@ export const mailData = [
     avatarColor: '#' + (0x1000000 + Math.random() * 0xffffff).toString(16).substr(1, 6),
     title: 'This project is just portfolio',
     content: 'I decided to bring me to next level',
-    subContent: 'and chanllenged myself to make this UI',
+    subContent: 'and chanllenged myself to make this UI.',
     time: '9 am',
   },
   {
@@ -39,7 +39,7 @@ export const mailData = [
     id: 5,
     avatarLetter: 'W',
     avatarColor: '#' + (0x1000000 + Math.random() * 0xffffff).toString(16).substr(1, 6),
-    title: 'Wanna see my entire portfolio?',
+    title: 'Do you want to see my portfolio?',
     content: 'thiagomunich.github.io',
     subContent: 'visit the link above!',
     time: '11 am',
