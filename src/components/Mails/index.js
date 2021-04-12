@@ -95,25 +95,28 @@ export default function Mails() {
       </Typography>
       <Principal />
       {mailData.map((mail) => (
-        <Grid container key={mail.id} className={classes.root} onClick={() => handleOpenMail(mail)}>
-          <Avatar style={{ backgroundColor: mail.avatarColor }}>{mail.avatarLetter}</Avatar>
+        <Grid container key={mail.id} className={classes.root}>
+          <Avatar style={{ backgroundColor: mail.avatarColor }} onClick={() => handleOpenMail(mail)}>
+            {mail.avatarLetter}
+          </Avatar>
           <Grid item container justify="space-between" sm={10} xs={10}>
-            <Grid item>
+            <Grid item onClick={() => handleOpenMail(mail)}>
               <Typography className={classes.mailTitle}>{mail.title}</Typography>
             </Grid>
             <Grid item>
               <Typography variant="caption">{mail.time}</Typography>
             </Grid>
-            <Grid item className={classes.mailContent} sm={10} xs={10}>
+            <Grid item className={classes.mailContent} sm={10} xs={10} onClick={() => handleOpenMail(mail)}>
               <Typography className={classes.mailContent} variant="body2">
                 {mail.content}
               </Typography>
             </Grid>
-            <Grid item className={classes.mailSubContent} sm={10} xs={10}>
+            <Grid item className={classes.mailSubContent} sm={10} xs={10} onClick={() => handleOpenMail(mail)}>
               <Typography className={classes.mailSubContent} variant="caption">
                 {mail.subContent}
               </Typography>
             </Grid>
+
             <Grid item>
               <Checkbox
                 className={classes.checkbox}
