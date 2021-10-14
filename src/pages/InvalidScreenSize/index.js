@@ -10,7 +10,7 @@ function InvalidScreenSize() {
 			alignItems='center'
 			style={{ position: 'fixed', top: '50%', backgroundColor: '#F3F3F3' }}
 		>
-			<Typography variant='h2'>Invalid screen size</Typography>
+			<Typography variant='h2'>Invalid screen size!</Typography>
 			<Typography variant='body1'>
 				Please orient your device to portrait or find a smaller screen. You won't be disappointed.
 			</Typography>
