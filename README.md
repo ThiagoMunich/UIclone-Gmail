@@ -2,7 +2,7 @@
 
 This is an UI clone I made for studying purposes.
 
-## Live demo (just mobile)
+## Live demo (just mobile or device mode)
 
 https://uiclone-gmail.vercel.app/
 
