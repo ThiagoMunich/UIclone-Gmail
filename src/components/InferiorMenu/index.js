@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useEffect, useState } from "react"
+import { useHistory } from "react-router-dom"
 
-import Badge from '@material-ui/core/Badge'
-import BottomNavigation from '@material-ui/core/BottomNavigation'
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
+import Badge from "@material-ui/core/Badge"
+import BottomNavigation from "@material-ui/core/BottomNavigation"
+import BottomNavigationAction from "@material-ui/core/BottomNavigationAction"
 
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from "@material-ui/core/styles"
 
-import MailIcon from '@material-ui/icons/Mail'
-import MailOutlinedIcon from '@material-ui/icons/MailOutlined'
+import MailIcon from "@material-ui/icons/Mail"
+import MailOutlinedIcon from "@material-ui/icons/MailOutlined"
 
-import VideocamIcon from '@material-ui/icons/Videocam'
-import VideocamOutlinedIcon from '@material-ui/icons/VideocamOutlined'
+import VideocamIcon from "@material-ui/icons/Videocam"
+import VideocamOutlinedIcon from "@material-ui/icons/VideocamOutlined"
 
 const useStyles = makeStyles({
   root: {
-    width: '100%',
-    position: 'fixed',
+    width: "100%",
+    position: "fixed",
     bottom: 0,
     height: 75,
   },
@@ -31,7 +31,7 @@ export default function InferiorMenu() {
   const [value, setValue] = useState(0)
 
   useEffect(() => {
-    value === 0 && history.push('/')
+    value === 0 && history.push("/")
   }, [history, value])
 
   return (
@@ -40,7 +40,7 @@ export default function InferiorMenu() {
       value={value}
       onChange={(event, newValue) => {
         setValue(newValue)
-        newValue === 0 ? history.push('/') : history.push('/meetings')
+        newValue === 0 ? history.push("/") : history.push("/meetings")
       }}
       className={classes.root}
       color="secondary"
@@ -49,7 +49,11 @@ export default function InferiorMenu() {
         label="E-mail"
         icon={
           <Badge badgeContent={4} color="secondary">
-            {value === 0 ? <MailIcon color="secondary" /> : <MailOutlinedIcon />}
+            {value === 0 ? (
+              <MailIcon color="secondary" />
+            ) : (
+              <MailOutlinedIcon />
+            )}
           </Badge>
         }
         className={classes.textColor}
@@ -57,7 +61,13 @@ export default function InferiorMenu() {
 
       <BottomNavigationAction
         label="Meeting"
-        icon={value === 1 ? <VideocamIcon color="secondary" /> : <VideocamOutlinedIcon />}
+        icon={
+          value === 1 ? (
+            <VideocamIcon color="secondary" />
+          ) : (
+            <VideocamOutlinedIcon />
+          )
+        }
         className={classes.textColor}
       />
     </BottomNavigation>
