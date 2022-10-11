@@ -1,7 +1,7 @@
 import React from "react"
 
-import Header from "../../components/Header"
 import Mails from "../../components/Mails"
+import Header from "../../components/Header"
 
 function MailList() {
   return (

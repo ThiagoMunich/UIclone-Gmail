@@ -14,7 +14,7 @@ export const mailData = [
     avatarLetter: "I",
     avatarColor:
       "#" + (0x1000000 + Math.random() * 0xffffff).toString(16).substr(1, 6),
-    title: "I am accepting freelances",
+    title: "I am accepting offers",
     content: "Contact me and lets chat",
     subContent: "by e-mail, LinkedIn, meetings.",
     time: "8 am",

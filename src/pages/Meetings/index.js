@@ -12,33 +12,35 @@ import DialogNotImplemented from "../../components/DialogNotImplemented"
 
 const useStyles = makeStyles({
   buttonsGrid: {
+    padding: 10,
     width: "100%",
     marginTop: 20,
-    padding: 10,
   },
   blueButton: {
-    backgroundColor: "#4285F4",
+    width: "35%",
     color: "#FFF",
     textTransform: "none",
-    width: "35%",
+    backgroundColor: "#4285F4",
   },
   whiteButton: {
-    backgroundColor: "#FFF",
+    width: "60%",
     color: "#4285F4",
     textTransform: "none",
-    width: "60%",
+    backgroundColor: "#FFF",
   },
   imageGrid: {
-    position: "fixed",
-    bottom: "40%",
+    height: "80vh",
+    display: "grid",
+    overflow: "none",
+    placeItems: "center",
   },
   meetingImage: {
     width: "80%",
     borderRadius: 90,
   },
   imageText: {
-    fontWeight: 700,
     marginTop: 10,
+    fontWeight: 700,
   },
 })
 
@@ -50,41 +52,45 @@ export default function Meetings() {
   return (
     <>
       <MeetingHeader />
+
       <Grid container justify="space-between" className={classes.buttonsGrid}>
         <Button
+          size="small"
           variant="contained"
           className={classes.blueButton}
-          size="small"
           onClick={() => setOpenDialog(true)}
         >
           New meeting
         </Button>
+
         <Button
+          size="small"
           variant="contained"
           className={classes.whiteButton}
-          size="small"
           onClick={() => setOpenDialog(true)}
         >
           Join with code
         </Button>
       </Grid>
+
       <Grid
         container
-        className={classes.imageGrid}
+        spacing={3}
         direction="column"
         alignItems="center"
-        spacing={3}
+        className={classes.imageGrid}
       >
         <img
           src={MeetingImage}
           alt="Meeting"
           className={classes.meetingImage}
         />
+
         <Typography variant="h6" className={classes.imageText}>
-          Oops..
+          Oops.. There's nothing here for you!
         </Typography>
-        <Typography variant="body2">There's nothing here for you!</Typography>
       </Grid>
+
       <DialogNotImplemented
         open={openDialog}
         close={() => setOpenDialog(false)}

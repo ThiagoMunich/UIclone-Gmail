@@ -8,33 +8,34 @@ import Typography from "@material-ui/core/Typography"
 
 import { makeStyles } from "@material-ui/core/styles"
 
-import profilePicture from "../../assets/images/profilePicture.jpg"
 import DialogNotImplemented from "../DialogNotImplemented"
+import profilePicture from "../../assets/images/profilePicture.jpg"
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: "flex",
-    alignItems: "center",
-    width: "100%",
     height: 50,
+    width: "100%",
+    display: "flex",
     marginBottom: 10,
+    alignItems: "center",
     justifyContent: "space-between",
   },
   input: {
-    marginLeft: theme.spacing(1),
     flex: 1,
+    marginLeft: theme.spacing(1),
   },
   iconButton: {
     padding: 10,
   },
   meetingText: {
-    fontWeight: 700,
     fontSize: 20,
+    fontWeight: 700,
   },
 }))
 
 export default function MeetingHeader() {
   const classes = useStyles()
+
   const [openDialog, setOpenDialog] = useState(false)
 
   return (
@@ -46,11 +47,14 @@ export default function MeetingHeader() {
         >
           <MenuIcon />
         </IconButton>
+
         <Typography className={classes.meetingText}>Meeting</Typography>
+
         <IconButton className={classes.iconButton}>
           <Avatar alt="kabal" src={profilePicture} />
         </IconButton>
       </Paper>
+
       <DialogNotImplemented
         open={openDialog}
         close={() => setOpenDialog(false)}

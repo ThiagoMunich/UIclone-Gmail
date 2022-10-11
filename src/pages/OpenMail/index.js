@@ -8,6 +8,7 @@ import { IoLogoPwa } from "react-icons/io5"
 import { AiFillLinkedin } from "react-icons/ai"
 import ArrowBackIcon from "@material-ui/icons/ArrowBack"
 import UndoOutlinedIcon from "@material-ui/icons/UndoOutlined"
+import DeveloperModeIcon from "@material-ui/icons/DeveloperMode"
 import MoreVertOutlinedIcon from "@material-ui/icons/MoreVertOutlined"
 import MailOutlineOutlinedIcon from "@material-ui/icons/MailOutlineOutlined"
 import { FaReact, FaLaravel, FaDigitalOcean, FaGithub } from "react-icons/fa"
@@ -15,7 +16,7 @@ import { SiMicrosoftsqlserver, SiGithubactions, SiGmail } from "react-icons/si"
 import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined"
 import SystemUpdateAltOutlinedIcon from "@material-ui/icons/SystemUpdateAltOutlined"
 
-import profilePicture from "../../assets/images/profilePicture.jpg"
+import useMediaQuery from "@material-ui/core/useMediaQuery"
 
 const useStyles = makeStyles({
   backIcon: {
@@ -32,12 +33,14 @@ const useStyles = makeStyles({
 function OpenMail({ open, close, mail }) {
   const classes = useStyles()
 
+  var mobile = useMediaQuery("(max-width:444px)")
+
   return (
     <>
       <Dialog
-        fullScreen
         open={open}
         onClose={close}
+        fullScreen={mobile}
         transitionDuration={500}
         TransitionComponent={Slide}
         TransitionProps={{ direction: "right" }}
@@ -63,22 +66,23 @@ function OpenMail({ open, close, mail }) {
 
         <Grid
           container
+          alignItems="center"
           style={{ padding: 8 }}
           justify="space-between"
-          alignItems="center"
         >
           <Avatar style={{ backgroundColor: mail.avatarColor }}>
             {mail.avatarLetter}
           </Avatar>
+
           <Typography variant="body2" className={classes.title}>
             Feel free to contact me!
           </Typography>
 
           <Grid item container md={5} sm={5} xs={5} justify="flex-end">
             <UndoOutlinedIcon
-              className={classes.otherIcons}
-              style={{ marginRight: 15 }}
               fontSize="small"
+              style={{ marginRight: 15 }}
+              className={classes.otherIcons}
             />
             <MoreVertOutlinedIcon
               className={classes.otherIcons}
@@ -90,32 +94,29 @@ function OpenMail({ open, close, mail }) {
         <Grid container style={{ padding: 10 }}>
           <Grid item md={12} sm={12} xs={12}>
             <Typography variant="body2" component="p">
-              My name is Thiago Munich and I'm a full stack developer.
+              My name is Thiago Munich and I'm a Software Engineer.
             </Typography>
           </Grid>
         </Grid>
 
         <Grid container justify="center" style={{ marginTop: 15 }}>
-          <img
-            src={profilePicture}
-            alt="kabal"
-            style={{ borderRadius: 360, width: "40%" }}
-          />
+          <DeveloperModeIcon style={{ fontSize: 140 }} />
         </Grid>
 
         <Grid
           container
-          style={{ padding: 10, marginTop: 20 }}
           justify="space-between"
+          style={{ padding: 10, marginTop: 20 }}
         >
           <Grid item>
             <Typography variant="caption">
-              <strong>Experience:</strong> nearly 2 years
+              <strong>Experience:</strong> 3 years
             </Typography>
           </Grid>
+
           <Grid item>
             <Typography variant="caption">
-              <strong>Availability:</strong> preferably freelances
+              <strong>Availability:</strong> full time / contract
             </Typography>
           </Grid>
         </Grid>
@@ -128,39 +129,39 @@ function OpenMail({ open, close, mail }) {
           style={{ padding: 10 }}
         >
           <Grid
-            container
             item
+            sm={5}
+            md={5}
+            xs={5}
+            container
             alignItems="center"
             justify="space-between"
-            md={5}
-            sm={5}
-            xs={5}
           >
             <FaReact size={20} style={{ color: "#61DBFB" }} />
             <Typography variant="caption">React JS</Typography>
           </Grid>
 
           <Grid
-            container
             item
+            sm={5}
+            md={5}
+            xs={5}
+            container
             alignItems="center"
             justify="space-between"
-            md={5}
-            sm={5}
-            xs={5}
           >
             <FaReact size={20} style={{ color: "#61DBFB" }} />
             <Typography variant="caption">React Native</Typography>
           </Grid>
 
           <Grid
-            container
             item
+            sm={5}
+            md={5}
+            xs={5}
+            container
             alignItems="center"
             justify="space-between"
-            md={5}
-            sm={5}
-            xs={5}
             style={{ marginTop: 20 }}
           >
             <IoLogoPwa size={20} style={{ color: "#1D395D" }} />
@@ -168,13 +169,13 @@ function OpenMail({ open, close, mail }) {
           </Grid>
 
           <Grid
-            container
             item
+            sm={5}
+            md={5}
+            xs={5}
+            container
             alignItems="center"
             justify="space-between"
-            md={5}
-            sm={5}
-            xs={5}
             style={{ marginTop: 20 }}
           >
             <FaLaravel size={20} style={{ color: "#F05340" }} />
@@ -182,13 +183,13 @@ function OpenMail({ open, close, mail }) {
           </Grid>
 
           <Grid
-            container
             item
+            sm={5}
+            md={5}
+            xs={5}
+            container
             alignItems="center"
             justify="space-between"
-            md={5}
-            sm={5}
-            xs={5}
             style={{ marginTop: 20 }}
           >
             <FaGithub size={20} style={{ color: "#333" }} />
@@ -196,13 +197,13 @@ function OpenMail({ open, close, mail }) {
           </Grid>
 
           <Grid
-            container
             item
-            alignItems="center"
-            justify="space-between"
             md={5}
             sm={5}
             xs={5}
+            container
+            alignItems="center"
+            justify="space-between"
             style={{ marginTop: 20 }}
           >
             <SiGithubactions size={20} style={{ color: "#333" }} />
@@ -210,13 +211,13 @@ function OpenMail({ open, close, mail }) {
           </Grid>
 
           <Grid
-            container
             item
+            sm={5}
+            md={5}
+            xs={5}
+            container
             alignItems="center"
             justify="space-between"
-            md={5}
-            sm={5}
-            xs={5}
             style={{ marginTop: 20 }}
           >
             <SiMicrosoftsqlserver size={20} style={{ color: "#F25022" }} />
@@ -224,13 +225,13 @@ function OpenMail({ open, close, mail }) {
           </Grid>
 
           <Grid
-            container
             item
+            sm={5}
+            md={5}
+            xs={5}
+            container
             alignItems="center"
             justify="space-between"
-            md={5}
-            sm={5}
-            xs={5}
             style={{ marginTop: 20 }}
           >
             <FaDigitalOcean size={20} style={{ color: "#008BCF" }} />

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+
 import { useHistory } from "react-router-dom"
 
 import Badge from "@material-ui/core/Badge"
@@ -8,17 +9,19 @@ import BottomNavigationAction from "@material-ui/core/BottomNavigationAction"
 import { makeStyles } from "@material-ui/core/styles"
 
 import MailIcon from "@material-ui/icons/Mail"
-import MailOutlinedIcon from "@material-ui/icons/MailOutlined"
-
 import VideocamIcon from "@material-ui/icons/Videocam"
+import MailOutlinedIcon from "@material-ui/icons/MailOutlined"
 import VideocamOutlinedIcon from "@material-ui/icons/VideocamOutlined"
 
 const useStyles = makeStyles({
   root: {
-    width: "100%",
-    position: "fixed",
     bottom: 0,
     height: 75,
+    left: "50%",
+    width: "100%",
+    maxWidth: 444,
+    position: "fixed",
+    transform: "translateX(-50%)",
   },
   textColor: {
     fontWeight: 700,
@@ -26,8 +29,10 @@ const useStyles = makeStyles({
 })
 
 export default function InferiorMenu() {
-  const classes = useStyles()
   let history = useHistory()
+
+  const classes = useStyles()
+
   const [value, setValue] = useState(0)
 
   useEffect(() => {

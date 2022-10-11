@@ -4,15 +4,15 @@ import { Avatar, Fab, Grid, Typography } from "@material-ui/core"
 
 import { makeStyles } from "@material-ui/core/styles"
 
-import Checkbox from "@material-ui/core/Checkbox"
 import StarIcon from "@material-ui/icons/Star"
+import Checkbox from "@material-ui/core/Checkbox"
+import EditOutlinedIcon from "@material-ui/icons/EditOutlined"
 import StarBorderOutlinedIcon from "@material-ui/icons/StarBorderOutlined"
 
-import { mailData } from "./mailData"
 import Principal from "./components"
-import { EditOutlined } from "@material-ui/icons"
-import DialogNotImplemented from "../DialogNotImplemented"
+import { mailData } from "./mailData"
 import OpenMail from "../../pages/OpenMail"
+import DialogNotImplemented from "../DialogNotImplemented"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,21 +20,21 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 20,
   },
   mailTitle: {
-    fontWeight: 700,
     marginLeft: 10,
+    fontWeight: 700,
   },
   mailContent: {
     marginLeft: 5,
-    whiteSpace: "nowrap",
     overflow: "hidden",
+    whiteSpace: "nowrap",
     textOverflow: "ellipsis",
   },
   mailSubContent: {
-    marginLeft: 5,
-    whiteSpace: "nowrap",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
     opacity: "75%",
+    marginLeft: 5,
+    overflow: "hidden",
+    whiteSpace: "nowrap",
+    textOverflow: "ellipsis",
   },
   checkbox: {
     margin: 0,
@@ -44,33 +44,37 @@ const useStyles = makeStyles((theme) => ({
     color: "#FFD700",
   },
   principalText: {
-    fontWeight: 700,
-    fontSize: 15,
     padding: 3,
+    fontSize: 15,
     opacity: "50%",
+    fontWeight: 700,
   },
   fab: {
-    color: "#de5246",
-    backgroundColor: "#FFF",
     margin: 20,
-    position: "fixed",
     bottom: 65,
-    fontWeight: 700,
-    justifyContent: "flex-end",
     fontSize: 16,
+    fontWeight: 700,
+    color: "#de5246",
+    position: "fixed",
     textTransform: "none",
+    backgroundColor: "#FFF",
+    justifyContent: "flex-end",
   },
   fabIcon: {
-    color: "#de5246",
     marginRight: 8,
+    color: "#de5246",
   },
 }))
 
 export default function Mails() {
   const classes = useStyles()
-  const [openDialog, setOpenDialog] = useState(false)
+
   const [openMail, setOpenMail] = useState(false)
+
+  const [openDialog, setOpenDialog] = useState(false)
+
   const [selectedMail, setSelectedMail] = useState({})
+
   const [writeButtonVariant, setWriteButtonVariant] = useState("extended")
 
   useEffect(() => {
@@ -94,39 +98,44 @@ export default function Mails() {
         Principal
       </Typography>
       <Principal />
+
       {mailData.map((mail) => (
         <Grid container key={mail.id} className={classes.root}>
           <Avatar
-            style={{ backgroundColor: mail.avatarColor }}
             onClick={() => handleOpenMail(mail)}
+            style={{ backgroundColor: mail.avatarColor }}
           >
             {mail.avatarLetter}
           </Avatar>
+
           <Grid item container justify="space-between" sm={10} xs={10}>
             <Grid item onClick={() => handleOpenMail(mail)}>
               <Typography className={classes.mailTitle}>
                 {mail.title}
               </Typography>
             </Grid>
+
             <Grid item>
               <Typography variant="caption">{mail.time}</Typography>
             </Grid>
+
             <Grid
               item
-              className={classes.mailContent}
               sm={10}
               xs={10}
+              className={classes.mailContent}
               onClick={() => handleOpenMail(mail)}
             >
               <Typography className={classes.mailContent} variant="body2">
                 {mail.content}
               </Typography>
             </Grid>
+
             <Grid
               item
-              className={classes.mailSubContent}
               sm={10}
               xs={10}
+              className={classes.mailSubContent}
               onClick={() => handleOpenMail(mail)}
             >
               <Typography className={classes.mailSubContent} variant="caption">
@@ -146,16 +155,19 @@ export default function Mails() {
           </Grid>
         </Grid>
       ))}
+
       <Grid container justify="flex-end" onClick={() => setOpenDialog(true)}>
         <Fab variant={writeButtonVariant} size="medium" className={classes.fab}>
-          <EditOutlined className={classes.fabIcon} />
+          <EditOutlinedIcon className={classes.fabIcon} />
           {writeButtonVariant === "extended" ? "Write" : " "}
         </Fab>
       </Grid>
+
       <DialogNotImplemented
         open={openDialog}
         close={() => setOpenDialog(false)}
       />
+
       <OpenMail
         open={openMail}
         close={() => setOpenMail(false)}
