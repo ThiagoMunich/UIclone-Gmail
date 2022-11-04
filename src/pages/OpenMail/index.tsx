@@ -17,6 +17,13 @@ import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined"
 import SystemUpdateAltOutlinedIcon from "@material-ui/icons/SystemUpdateAltOutlined"
 
 import useMediaQuery from "@material-ui/core/useMediaQuery"
+import { SelectedMail } from "../../components/Mails"
+
+interface OpenMailProps {
+  open: boolean
+  close: () => void
+  mail: SelectedMail
+}
 
 const useStyles = makeStyles({
   backIcon: {
@@ -30,7 +37,7 @@ const useStyles = makeStyles({
   },
 })
 
-function OpenMail({ open, close, mail }) {
+function OpenMail({ open, close, mail }: OpenMailProps) {
   const classes = useStyles()
 
   var mobile = useMediaQuery("(max-width:444px)")
@@ -43,11 +50,10 @@ function OpenMail({ open, close, mail }) {
         fullScreen={mobile}
         transitionDuration={500}
         TransitionComponent={Slide}
-        TransitionProps={{ direction: "right" }}
       >
         <Grid container justify="space-between" style={{ padding: 5 }}>
           <Grid item container md={3} sm={3} xs={3}>
-            <ArrowBackIcon onClick={close} className={classes.backIcons} />
+            <ArrowBackIcon onClick={close} className={classes.backIcon} />
           </Grid>
 
           <Grid item container md={5} sm={5} xs={5} justify="space-between">

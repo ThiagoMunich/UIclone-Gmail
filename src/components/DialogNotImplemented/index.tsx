@@ -8,7 +8,12 @@ import {
   DialogContent,
 } from "@material-ui/core"
 
-function DialogNotImplemented({ open, close }) {
+interface DialogNotImplementedProps {
+  open: boolean
+  close: () => void
+}
+
+function DialogNotImplemented({ open, close }: DialogNotImplementedProps) {
   return (
     <Dialog open={open} onClose={close}>
       <DialogContent>
