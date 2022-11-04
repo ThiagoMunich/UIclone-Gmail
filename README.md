@@ -2,7 +2,11 @@
 
 This is an UI clone I made for studying purposes.
 
-## Live demo (just mobile or device mode)
+<p align="center">
+ <img src="https://i.imgur.com/5iRnZt6.png" width="35%" height="35%" />
+</p>
+
+## Live demo (better on mobile)
 
 https://uiclone-gmail.vercel.app/
 
